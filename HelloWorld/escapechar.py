@@ -14,3 +14,6 @@ several \
 lines"""
 
 print(anotherSplitString)
+
+print("C:\\Users\\mqureshi\\notes.txt")
+print(r"C:\Users\mqureshi\notes.txt")
