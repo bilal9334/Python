@@ -1,4 +1,4 @@
-def multiply(x, y):
+def multiply(x: float, y: float) -> float:
     """
     Multiply 2 numbers
 
@@ -14,7 +14,7 @@ def multiply(x, y):
     return result
 
 
-def is_palindrome(string):
+def is_palindrome(string: str) -> bool:
     """
     Get a string from Standard Input (stdin)
 
@@ -28,7 +28,7 @@ def is_palindrome(string):
     return string[::-1].casefold() == string.casefold()
 
 
-def palindrome_sentence(sentence):
+def palindrome_sentence(sentence: str) -> bool:
     """
     Get a string from Standard Input (stdin)
 
@@ -50,6 +50,25 @@ def palindrome_sentence(sentence):
     return is_palindrome(string)
 
 
+def fibonacci(n: int) -> int:
+    """Return the `n` th Fibonacci number, for positive `n`."""
+    if 0 <= n <= 1:
+        return n
+
+    n_minus1, n_minus2 = 1, 0
+
+    result = None
+    for f in range(n - 1):
+        result = n_minus2 + n_minus1
+        n_minus2 = n_minus1
+        n_minus1 = result
+
+    return result
+
+
+for i in range(36):
+    print(i, fibonacci(i))
+
 # answer = multiply(2, 3)
 # print(answer)
 #
@@ -59,8 +78,10 @@ def palindrome_sentence(sentence):
 #     two_times = multiply(2, val)
 #     print(two_times)
 
-word = input("Please enter a word to check: ")
-if palindrome_sentence(word):
-    print("'{}' is a palindrome".format(word))
-else:
-    print("'{}' is not a palindrome".format(word))
+# word = input("Please enter a word to check: ")
+# if palindrome_sentence(word):
+#     print("'{}' is a palindrome".format(word))
+# else:
+#     print("'{}' is not a palindrome".format(word))
+
+p = palindrome_sentence()
