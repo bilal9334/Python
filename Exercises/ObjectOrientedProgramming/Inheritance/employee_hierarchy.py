@@ -4,20 +4,36 @@ class Employee:
         self.name = name
         self.salary = salary
 
+    def show_details(self):
+        return "Name: {0.name}, Salary: {0.salary}".format(self)
+
+
+class Developer(Employee):
+
+    def __init__(self, name, salary, programming_language):
+        super().__init__(name=name, salary=salary)
+        self.programming_language = programming_language
+
+    def show_details(self):
+        return super().show_details() + ", Programming Language: {0.programming_language}".format(self)
+
 
 class Manager(Employee):
 
-    def __init__(self, name, salary, task):
+    def __init__(self, name, salary, team_size):
         super().__init__(name, salary)
-        self.task = task
+        self.team_size = team_size
 
-    def assign_task(self):
-        return "Name of Employee: {0.name}, Task: {0.task}, Salary: {0.salary}".format(self)
+    def show_details(self):
+        return super().show_details() + ", Team Size: {0.team_size}".format(self)
 
 
 if __name__ == '__main__':
-    e1 = Manager("Bob", 10000, "Print the papers")
-    print(e1.assign_task())
+    dev1 = Developer("Emmanuel", 4300, "C++")
+    print(dev1.show_details())
 
-    e2 = Manager("Emmanuel", 4300, "Write Requirements")
-    print(e2.assign_task())
+    dev2 = Developer("Bilal", 4300, "Python")
+    print(dev2.show_details())
+
+    manager = Manager("Susanne", 10000, 20)
+    print(manager.show_details())
