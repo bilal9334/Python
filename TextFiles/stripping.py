@@ -12,8 +12,8 @@ def removesuffix(string: str, suffix: str) -> str:
         return string[:]
 
 
-filename = 'Jabberwocky.txt'
-with open(filename, encoding="utf-8") as poem:
+filename = 'D:\Python\TextFiles\Jabberwocky.txt'
+with open(filename) as poem:
     first = poem.readline().rstrip()
 
 print(first)
@@ -30,7 +30,7 @@ for character in first:
 
 print('*' * 80)
 
-for character in first[::-1]:
+for character in first[::-1]: # process backwards
     if character in chars:
         print(f'removing "{character}"')
     else:

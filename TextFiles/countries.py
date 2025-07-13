@@ -1,4 +1,4 @@
-input_filename = 'country_info'
+input_filename = 'D:\Python\TextFiles\country_info'
 
 countries = {}
 with open(input_filename) as country_file:
@@ -6,7 +6,7 @@ with open(input_filename) as country_file:
     for row in country_file:
         data = row.strip('\n').split('|')
         country, capital, code, code3, dialing, timezone, currency = data
-        # print(country, capital, code, code3, dialing, timezone, currency, sep='\n\t')
+       # print(country, capital, code, code3, dialing, timezone, currency, sep='\n\t')
         country_dict = {
             'name': country,
             'capital': capital,
@@ -14,20 +14,24 @@ with open(input_filename) as country_file:
             'cc3': code3,
             'dialing_code': dialing,
             'timezone': timezone,
-            'currency': currency,
+            'currency': currency
         }
         # print(country_dict)
         countries[country.casefold()] = country_dict
+        # code_lookup[code.casefold()] = country
         countries[code.casefold()] = country_dict
-        countries[dialing] = country_dict
 
-# print(countries)
+    for country in countries:
+        if countries[country]['capital'].strip() == '':
+            print(country)
+        
 
-while True:
-    chosen_country = input("Please enter the name of the country: ")
-    country_key = chosen_country.casefold()
-    if country_key in countries:
-        country_data = countries[country_key]
-        print(f"The capital of {chosen_country} is {country_data['capital']}")
-    elif chosen_country == 'quit':
-        break
+
+# while True:
+#     user_input = input("Enter a name of a country: ")
+#     country_key = user_input.casefold()    
+#     if country_key in countries:
+#         country_data = countries[country_key]
+#         print(f"The capital of chosen {user_input} is {country_data['capital']}")
+#     elif user_input =='quit':
+#         break
