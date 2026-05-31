@@ -1,0 +1,17 @@
+[project]
+name = "python-practice"
+version = "0.1.0"
+description = "Practice scripts and tests"
+dependencies = []
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = "-q"
+testpaths = ["PyTest"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
