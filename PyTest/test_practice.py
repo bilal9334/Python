@@ -85,6 +85,8 @@ class TestPractice:
         assert count_valid_user([user, user2, user3]) == 2
 
     def test_collect_invalid_user(self):
-        user = {"name": "John", "email": "john@example.com", "age": 30}
-        user2 = {"name": "Sara", "email": "sara@example.com", "age": "22"}
-        assert collect_invalid_user([user, user2]) == [user2]
+        user = [
+            {"name": "John", "email": "john@example.com", "age": 30},
+            {"name": "Sara", "email": "sara@example.com", "age": "22"},
+        ]
+        assert collect_invalid_user(user) == [user[1]]
