@@ -36,6 +36,36 @@ def count_file_types(file_names: list[str]) -> dict[str, int]:
     return result
 
 
+def has_required_fields(user: dict) -> bool:
+    required_fields = ["name", "email", "age"]
+    for field in required_fields:
+        if field not in user:
+            return False
+        if user[field] == "":
+            return False
+    return True
+
+
+def is_valid_user(user: dict) -> bool:
+    if not has_required_fields(user):
+        return False
+    if "@" not in user["email"]:
+        return False
+    if not isinstance(user["age"], int):
+        return False
+    if user["age"] <= 0:
+        return False
+    return True
+
+
+def count_valid_user(users: list[dict]) -> int:
+    valid_count = 0
+    for user in users:
+        if is_valid_user(user):
+            valid_count += 1
+    return valid_count
+
+
 files = ["report.pdf", "image.png", "data.csv", "notes.txt", "photo.png", "summary.pdf"]
 
 print(count_file_types(files))
