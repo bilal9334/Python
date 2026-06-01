@@ -1,4 +1,5 @@
 from Exercises.practice import (
+    collect_invalid_user,
     count_valid_user,
     has_required_fields,
     is_valid_user,
@@ -82,3 +83,8 @@ class TestPractice:
         user2 = {"name": "Jane", "email": "jane@example.com", "age": 25}
         user3 = {"name": "", "email": "sara@example.com", "age": 22}
         assert count_valid_user([user, user2, user3]) == 2
+
+    def test_collect_invalid_user(self):
+        user = {"name": "John", "email": "john@example.com", "age": 30}
+        user2 = {"name": "Sara", "email": "sara@example.com", "age": "22"}
+        assert collect_invalid_user([user, user2]) == [user2]

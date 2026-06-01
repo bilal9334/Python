@@ -66,6 +66,14 @@ def count_valid_user(users: list[dict]) -> int:
     return valid_count
 
 
+def collect_invalid_user(users: list[dict]) -> list[dict]:
+    invalid_users = []
+    for user in users:
+        if not is_valid_user(user):
+            invalid_users.append(user)
+    return invalid_users
+
+
 files = ["report.pdf", "image.png", "data.csv", "notes.txt", "photo.png", "summary.pdf"]
 
 print(count_file_types(files))
